@@ -144,6 +144,33 @@
 					</footer>
 				</article>
 			</div>
+			
+		<!-- Post -->
+			<div class="wrapper style3">
+				<article id="post">
+					<header>
+						<h2>Here’s some stuff I made recently.</h2>
+						<p>Proin odio consequat  sapien vestibulum consequat lorem dolore feugiat lorem ipsum dolore.</p>
+					</header>
+					<div class="container">
+						{% for post in paginator.posts %}
+						<div class="row">
+							<div class="4u 12u(mobile)">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+									<h3><a href="#">Lorem ipsum</a></h3>
+									<p>Ornare nulla proin odio consequat.</p>
+								</article>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+					<footer>
+						<p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
+						<a href="#contact" class="button big scrolly">Get in touch with me</a>
+					</footer>
+				</article>
+			</div>
 
 		<!-- Contact -->
 			<div class="wrapper style4">
