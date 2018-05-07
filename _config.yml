@@ -1,8 +1,2 @@
 encoding: UTF-8
-collections:
-  portfolio:
-    output: true
-    permalink: /portfolio/:path/
-  poetry:
-    output: true
-    permalink: /poetry/:path/
+permalink: /:title/
