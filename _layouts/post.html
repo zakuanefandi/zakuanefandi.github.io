@@ -1,17 +1,21 @@
 ---
 layout: default
 ---
-			<header>
-				<h2>{{ page.title }}</h2>
-				<p>{{ page.date | date: "%B %-d, %Y — %H:%M" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-			</header>
-			<div class="container">
-				<div class="row">
-					<div class="12u 12u(mobile)">
-						<section class="box style1">
-							<span class="icon featured fa-comments-o"></span>
-							<p>{{ content }}</p>
-						</section>
+			<div class="wrapper style2">
+				<article id="work">
+					<header>
+						<h2>{{ page.title }}</h2>
+						<p>{{ page.date | date: "%B %-d, %Y — %H:%M" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+					</header>
+					<div class="container">
+						<div class="row">
+							<div class="12u 12u(mobile)">
+								<section class="box style1">
+									<span class="icon featured fa-comments-o"></span>
+									<p>{{ content }}</p>
+								</section>
+							</div>
+						</div>
 					</div>
-				</div>
+				</article>
 			</div>
