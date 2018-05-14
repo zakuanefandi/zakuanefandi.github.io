@@ -123,7 +123,7 @@ $message = $message . PHP_EOL.PHP_EOL."-- ".PHP_EOL."Thank you for using our con
 
 $message = stripslashes($message);
 
-$subject = "Contact Form";
+$subject = "zakuanefandi.github.io - Contact Form";
 
 $subject = stripslashes($subject);
 
