@@ -18,14 +18,14 @@ if(count($_COOKIE)){
 
 // Validate email field.
 
-$reqEmail = $_REQUEST['email'];
+$req_email = $_REQUEST['email'];
 
-if(isset($reqEmail) && !empty($reqEmail)){
-	$reqEmail = trim($reqEmail);
-	if(substr_count($reqEmail,"@") != 1 || stristr($reqEmail," ")){
+if(isset($req_email) && !empty($req_email)){
+	$req_email = trim($req_email);
+	if(substr_count($req_email,"@") != 1 || stristr($req_email," ")){
 		$errors[] = "Email address is invalid";
 	}else{
-		$exploded_email = explode("@",$reqEmail);
+		$exploded_email = explode("@",$req_email);
 		if(empty($exploded_email[0]) || strlen($exploded_email[0]) > 64 || empty($exploded_email[1])){
 			$errors[] = "Email address is invalid";
 		}else{
@@ -50,7 +50,7 @@ if(isset($reqEmail) && !empty($reqEmail)){
 
 // Check referrer is from same site.
 
-if(!(isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER']) && stristr($_SERVER['HTTP_REFERER'],$_SERVER['HTTP_HOST']))){
+if(!(isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER']) && stristr($_SERVER['HTTP_REFERER'],"zakuanefandi.github.io"))){
 	$errors[] = "You must enable referrer logging to use the form";
 }
 
@@ -130,11 +130,11 @@ $subject = stripslashes($subject);
 if($from_email){
 	$headers = "From: " . $from_email;
 	$headers .= PHP_EOL;
-	$headers .= "Reply-To: " . $reqEmail;
+	$headers .= "Reply-To: " . $req_email;
 }else{
 	$from_name = "";
 	if(isset($_REQUEST['name']) && !empty($_REQUEST['name'])){$from_name = stripslashes($_REQUEST['name']);}
-	$headers = "From: {$from_name} <{$reqEmail}>";
+	$headers = "From: {$from_name} <{$req_email}>";
 }
 
 mail($g_mail,$subject,$message,$headers);
