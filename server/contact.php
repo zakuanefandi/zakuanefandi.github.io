@@ -133,34 +133,20 @@ if($from_email){
 	$headers .= "Reply-To: " . $req_email;
 }else{
 	$from_name = "";
-	if(isset($_REQUEST['name']) && !empty($_REQUEST['name'])){$from_name = stripslashes($_REQUEST['name']);}
+	if(isset($_REQUEST['name']) && !empty($_REQUEST['name'])){
+		$from_name = stripslashes($_REQUEST['name']);
+	}
 	$headers = "From: {$from_name} <{$req_email}>";
 }
 
 mail($g_mail,$subject,$message,$headers);
 
+function Redirect($url, $statusCode = 303)
+{
+   header('Location: ' . $url, true, $statusCode);
+   die();
+}
+
+Redirect($continue)
+
 ?>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
-<html>
-<head>
-<title>Just some title</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-</head>
-<body bgcolor="#ffffff" text="#000000">
-<div>
-<center>
-<b>Thank you
-	<?php 
-	if(isset($_REQUEST['name'])){
-		print stripslashes($_REQUEST['name']);
-	}
-	?>
-</b>
-<br>Your message has been sent
-<p><a href="<?php print $continue; ?>">Click here to continue</a></p>
-</center>
-</div>
-</body>
-</html>
