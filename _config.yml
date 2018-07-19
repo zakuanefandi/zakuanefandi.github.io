@@ -1,16 +1,11 @@
 encoding: UTF-8
 permalink: /:title/
-
-# Name of your blog (this will show up at the top of your page and in the RSS feed)
 title: Zakuan Efandi - Personal Portfolio
-
-# Short description (goes below the title; it will also be used in the RSS feed)
-description: Zakuan Efandi - Personal Portfolio
-
-# Your name, as you want it to appear underneath each post and in the footer
+description: Personal Portfolio
 author:
-    first: Zakuan
-    last: Efandi
-
-# Your email if you want it to be linked on the contact page
-author_email: m.zakuan.efandi@gmail.com
+    first_name: Zakuan
+    last_name: Efandi
+    admin:
+        name: Zakuan Efandi
+        email: m.zakuan.efandi@gmail.com
+        web: 
