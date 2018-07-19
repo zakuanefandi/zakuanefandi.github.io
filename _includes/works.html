@@ -7,7 +7,7 @@
 				<p>Show your work here. Dribbble shots from the awesome designer <a href="http://dribbble.com/wanderingbert">David Creighton-Pester</a>.</p>
 			</div>
 		</div>
-		<div class="row mt centered">	
+		<div class="row mt centered">
 			<div class="col-lg-4">
 				<a class="zoom" href="work01.html"><img class="img-responsive" src="{{ site.baseurl }}/assets/img/portfolio/port01.jpg" alt="" />
 					<div class="zoomOverlay"></div>
@@ -47,4 +47,21 @@
 				<p>CHIEFS</p>
 			</div>
 		</div><!-- /row -->
+		{% assign loopindex = 0 %}
+		{% for page in site.pages %}
+			{% assign loopindex = loopindex | plus: 1 %}
+			{% assign rowfinder = loopindex | modulo: 4 %}
+			{% if rowfinder == 1 %}
+			  <div class="row">
+			  <div class="span3">{{ page.title }}</div>
+			{% elsif rowfinder == 0 %}
+			  <div class="span3">{{ page.title }}</div>
+			  </div>
+			{% else %}
+			  <div class="span3">{{ page.title }}</div>
+			{% endif %}
+		{% endfor %}
+		{% if rowfinder != 0 %}
+			  </div>
+		{% endif %}
 	</div><!-- /container -->
