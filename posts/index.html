@@ -4,13 +4,18 @@ title: posts
 ---
 	<!-- +++++ Posts Lists +++++ -->
 	<div class="container pt">
-		{% for post in site.posts %}
-		<div id="{% cycle 'gray', 'white' %}">
+	{% for post in site.posts %}
+		{% assign indexmod2 = forloop.index | modulo: 2 %}
+		{% if indexmod2 == 0 %}
+			<div id="gray">
+		{% else %}
+			<div id="white">
+		{% endif %}
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 col-lg-offset-2">
 						<p><img src="{{ site.baseurl }}/assets/img/user.png" width="50px" height="50px"> <ba>Stanley Stinson</ba></p>
-						<p><bd>{{ post.date }}</bd></p>
+						<p><bd>{{ post.date | date_to_string }}</bd></p>
 						<h4>{{ post.title }}</h4>
 						<p>{{ post.description }}</p>
 						<p><a href="{{ post.url | prepend: site.baseurl }}">Continue Reading...</a></p>
@@ -19,5 +24,5 @@ title: posts
 				</div><!-- /row -->
 			</div> <!-- /container -->
 		</div><!-- /grey -->
-		{% endfor %}
+	{% endfor %}
 	</div>
