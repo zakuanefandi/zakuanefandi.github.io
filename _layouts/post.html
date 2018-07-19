@@ -2,7 +2,6 @@
 layout: default
 ---
 {% assign author = site[page.author] %}
-{{ page.author }}
 	<!-- +++++ Post +++++ -->
 	<div class="container pt">
 		<div id="white">
@@ -15,7 +14,7 @@ layout: default
 						{{ content }}
 						<br>
 						<p><bt>TAGS: <a href="#">Wordpress</a> - <a href="#">Web Design</a></bt></p>
-						<hr>
+						<hr>{{ page.author }}
 						<p><a href="/posts/">Back</a></p>
 					</div>
 
