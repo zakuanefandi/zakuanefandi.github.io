@@ -1,7 +1,7 @@
 ---
 layout: default
-title: posts
 ---
+
 	<!-- +++++ Posts Lists +++++ -->
 	<div class="container pt">
 	{% for post in site.posts %}
@@ -14,7 +14,7 @@ title: posts
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 col-lg-offset-2">
-						<p><img src="{{ site.baseurl }}/assets/img/user.png" width="50px" height="50px"> <ba>Stanley Stinson</ba></p>
+						<p><img src="{{ site.baseurl }}/assets/img/user.png" width="50px" height="50px"> <ba>{{ post.author }}</ba></p>
 						<p><bd>{{ post.date | date_to_string }}</bd></p>
 						<h4>{{ post.title }}</h4>
 						<p>{{ post.description }}</p>

@@ -1,9 +1,16 @@
 encoding: UTF-8
 permalink: /:title/
 
-defaults:
-  -
-    scope:
-      path: "" # an empty string here means all files in the project
-    values:
-      layout: "default"
+# Name of your blog (this will show up at the top of your page and in the RSS feed)
+name: Sample Jekyll Blog
+
+# Short description (goes below the title; it will also be used in the RSS feed)
+description: Zakuan Efandi - Personal Portfolio
+
+# Your name, as you want it to appear underneath each post and in the footer
+author:
+    first: Zakuan
+    last: Efandi
+
+# Your email if you want it to be linked on the contact page
+author_email: m.zakuan.efandi@gmail.com
