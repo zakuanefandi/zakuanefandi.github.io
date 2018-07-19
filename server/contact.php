@@ -4,7 +4,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 $g_mail = "m.zakuan.efandi@gmail.com";
 $from_email = "";
-$continue = "https://zakuanefandi.github.io/";
+$continue = "https://zakuanefandi.github.io/contact/";
 
 $errors = array();
 
