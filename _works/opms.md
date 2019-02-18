@@ -1,7 +1,7 @@
 ---
 title: Outpatients Management System
 date: 2015-03-15 16:40:16
-preview: /assets/img/portfolio/spkma/thumbig1.png
+preview: /assets/img/portfolio/spkma/thumbig1.jpg
 client: BlackTie.co
 type: Illustration
 ---
