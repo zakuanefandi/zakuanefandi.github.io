@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+	<title>{{site.title }}</title>
 	<meta name="description" content="{{ site.description }}">
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,14 +14,14 @@
   </head>
   <body>
     <!-- Nav -->
-	{% include nav.html %}
+	{%- include nav.html -%}
 	<!-- Welcome -->
-	{% include welcome.html %}
+	{%- include welcome.html -%}
 	<!-- Works -->
-	{% include works.html %}
+	{%- include works.html -%}
 	<!-- Footer -->
-	{% include footer.html %}
+	{%- include footer.html -%}
 	<!-- Scripts -->
-	{% include scripts.html %}
+	{%- include scripts.html -%}
   </body>
 </html>

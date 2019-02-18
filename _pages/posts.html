@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+	<!-- +++++ Posts Lists +++++ -->
+	<div class="container pt">
+	{%- for post in site.posts -%}
+		{%- assign author = site.data.authors[post.author] -%}
+		{%- assign indexmod2 = forloop.index | modulo: 2 -%}
+		{%- if indexmod2 == 0 -%}
+			<div id="grey">
+		{%- else -%}
+			<div id="white">
+		{%- endif -%}
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 col-lg-offset-2">
+						<p>
+							<img src="{{ site.baseurl }}{{ author.avatar | default: site.data.authors.admin.avatar }}" width="50px" height="50px">
+							<ba>{{ author.name | default: site.data.authors.admin.name }}</ba>
+						</p>
+						<p><bd>{{ post.date | date_to_string }}</bd></p>
+						<h4>{{ post.title }}</h4>
+						{%- if post.preview -%}
+							<p><img class="img-responsive img-blogpreview" src="{{ post.preview }}" alt=""></p>
+						{%- endif -%}
+						<p>{{ post.excerpt }}</p>
+						{%- if post.excerpt != post.content -%}
+							<p><a href="{{ post.url | prepend: site.baseurl }}">Continue Reading...</a></p>
+						{%- endif -%}
+					</div>
+
+				</div><!-- /row -->
+			</div> <!-- /container -->
+		</div><!-- /grey -->
+	{%- endfor -%}
+	</div>

@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-{% assign author = site.author[page.author] %}
+{%- assign author = site.data.authors[page.author] -%}
 	<!-- +++++ Post +++++ -->
 	<div class="container pt">
 		<div id="white">
@@ -9,16 +9,25 @@ layout: default
 				<div class="row">
 					<div class="col-lg-8 col-lg-offset-2">
 						<p>
-							<img src="{{ site.baseurl }}/assets/img/user.png" width="50px" height="50px">
-							<ba>{% if author %}{{ author.name }}{% else %}{{ site.author.admin.name }}{% endif %}</ba>
+							<img src="{{ site.baseurl }}{{ author.avatar | default: site.data.authors.admin.avatar }}" width="50px" height="50px">
+							<ba>{{ author.name | default: site.data.authors.admin.name }}</ba>
 						</p>
-						<p><bd>{{ page.date | date: "%B %-d, %Y — %H:%M" }}{% if page.meta %} • {{ page.meta }}{% endif %}</bd></p>
+						<p><bd>{{ page.date | date_to_string }}</bd></p>
 						<h4>{{ page.title }}</h4>
 						{{ content }}
 						<br>
-						<p><bt>TAGS: <a href="#">Wordpress</a> - <a href="#">Web Design</a></bt></p>
+						{%- if page.tags.size > 0 -%}
+						<div class="tags">
+						<bt><span class="glyphicon glyphicon-tags"></span> Tags:</bt>
+							<ul>
+								{%- for tag in page.tags -%}
+								<li><a href="/pages/tags/#{{ tag }}">{{ tag }}</a></li>
+								{%- endfor -%}
+							</ul>
+						</div>
+						{%- endif -%}
 						<hr>
-						<p><a href="/posts/">Back</a></p>
+						<p><a href="/pages/posts/">Back</a></p>
 					</div>
 
 				</div><!-- /row -->

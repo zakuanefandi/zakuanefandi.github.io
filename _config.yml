@@ -1,12 +1,68 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: Zakuan Efandi's Personal Weblog
+description: Personal Weblog
+baseurl: ""
+url: "https://zakuanefandi.github.io/"
+
 encoding: UTF-8
-permalink: /:title/
-title: Zakuan Efandi - Personal Portfolio
-description: Personal Portfolio
+excerpt_separator: <!--more-->
+timezone: Asia/Kuala_Lumpur
+
 author:
-    first_name: Zakuan
-    last_name: Efandi
-    admin:
-        name: Zakuan Efandi
-        email: m.zakuan.efandi@gmail.com
-        web: 
-url: https://zakuanefandi.github.io/
+  first_name: Zakuan
+  last_name: Efandi
+
+collections:
+  works:
+    output: true
+    permalink: /works/:title/
+  posts:
+    output: true
+    permalink: /posts/:year/:month/:title/
+  pages:
+    output: true
+    permalink: /pages/:title/
+
+defaults:
+  - scope:
+      type: works
+    values:
+      layout: work
+  - scope:
+      type: posts
+    values:
+      layout: post
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+exclude: [_archived, _draft]
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
+# defaults:
+  # -
+    # scope:
+      # path: "mypages"
+      # type: "pages"
+    # values:
+      # permalink: "/:basename.html"

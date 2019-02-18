@@ -12,13 +12,24 @@ layout: default
 		</div>
 		<div class="row mt centered">	
 			<div class="col-lg-8 col-lg-offset-2">
-				<p><img class="img-responsive" src="assets/img/portfolio/1.jpg" alt=""></p>
-				<p><img class="img-responsive" src="assets/img/portfolio/2.jpg" alt=""></p>
-				<p><img class="img-responsive" src="assets/img/portfolio/3.jpg" alt=""></p>
+				<p><img class="img-responsive" src="{{ site.baseurl }}/assets/img/portfolio/1.jpg" alt=""></p>
+				<p><img class="img-responsive" src="{{ site.baseurl }}/assets/img/portfolio/2.jpg" alt=""></p>
+				<p><img class="img-responsive" src="{{ site.baseurl }}/assets/img/portfolio/3.jpg" alt=""></p>
 				<p>
-					<bt>Client: <a href="#">BlackTie.co</a></bt> - <bt>Type: <a href="#">Illustration</a>
-					</bt> - <bt>Date: <a href="#">{{ page.date | date_to_string }}</a></bt>
+					<bt>Client: <a href="#">{{ page.client }}</a></bt> - <bt>Type: <a href="#">{{ page.type }}</a>
+					</bt> - <bt>Completion: <a href="#">{{ page.date | date: "%B %Y" }}</a></bt>
 				</p>
+				{%- if page.tags.size > 0 -%}
+				<div class="tags"><bt>Tags:</bt>
+					<ul>
+						{%- for tag in page.tags -%}
+						<li><a href="/pages/tags/#{{ tag }}">{{ tag }}</a></li>
+						{%- endfor -%}
+					</ul>
+				</div>
+				{%- endif -%}
+				<hr>
+				<p><a href="/pages/works/">Back</a></p>
 			</div>
 		</div><!-- /row -->
 	</div><!-- /container -->
