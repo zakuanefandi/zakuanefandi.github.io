@@ -378,3 +378,7 @@ bt {
 	color: #555;
 	margin: 0 4px;
 }
+
+.carousel-control.right, .carousel-control.left {
+  background-image: none;
+}
