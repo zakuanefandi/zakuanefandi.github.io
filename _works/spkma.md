@@ -4,8 +4,10 @@ date: 2015-03-15 16:40:16
 preview: /assets/img/portfolio/spkma/thumbig1.jpg
 showcase:
   - /assets/img/portfolio/spkma/slide1.jpg
-  - /assets/img/portfolio/spkma/chicago.jpg
-  - /assets/img/portfolio/spkma/chicago.jpg
+  - /assets/img/portfolio/spkma/slide2.jpg
+  - /assets/img/portfolio/spkma/slide3.jpg
+  - /assets/img/portfolio/spkma/slide4.jpg
+  - /assets/img/portfolio/spkma/slide5.jpg  
 client: Private
 type: Desktop Application
 tags: test test
