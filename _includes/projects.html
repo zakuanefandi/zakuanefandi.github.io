@@ -1,0 +1,63 @@
+<!-- +++++ Projects Section +++++ -->
+	<div id="project" class="container py">
+		<div class="row">
+			<div class="col-lg-6 offset-lg-3 centered">
+				<h3>MY PROJECT</h3>
+				<hr>
+				<p>Below are the featured projects of what I've done so far which include projects from my hobby, college days and jobs. The list is sorted from recent to oldest.</p>
+			</div>
+		</div>
+		<!-- 
+		{%- assign loopindex = 0 -%}
+		{%- assign projects = site.projects | sort: 'completion' -%}
+		{%- for project in projects -%}
+			{%- assign loopindex = loopindex | plus: 1 -%}
+			{%- assign rowfinder = loopindex | modulo: 3 -%}
+			{% capture projectbox %}
+			<div class="col-lg-4">
+				<a class="zoom" href="{{ project.url }}">
+					<img class="img-responsive" src="{{ site.baseurl }}{{ project.preview }}" alt="{{ project.title }}" />
+					<div class="zoomOverlay"></div>
+				</a>
+				<h5 class="posts-title"><a href="{{ project.url }}">{{ project.title }}</a></h5>
+			</div>
+			{%- endcapture -%}
+			{%- if rowfinder == 1 -%}
+			<div class="row my centered">
+				{{ projectbox }}
+			{%- elsif rowfinder == 0 -%}
+				{{ projectbox }}
+			</div>
+			{%- else -%}
+				{{ projectbox }}
+			{%- endif -%}
+		{%- endfor -%}
+		{%- if rowfinder != 0 -%}
+		</div>
+		{% endif %}
+		-->
+		{%- assign loopindex = 0 -%}
+		{%- assign loop_size = site.projects | size -%}
+		{%- assign projects = site.projects | sort: 'completion' -%}
+		{%- for project in projects reversed -%}
+		{%- assign loopindex = loopindex | plus: 1 -%}
+		<div class="row my">
+			<div class="col-lg-4">
+				<h3>{{ project.title | upcase }}</h3>
+				<p>
+					{% if project.excerpt %}
+						{{ project.excerpt | strip_html | remove_first: 'Project Background' }}
+					{% endif %}
+				</p>
+				<p><a href="{{ project.url }}" class="btn btn-outline-info" role="button">SEE MORE</a></p>
+			</div>
+			<div class="col-lg-8">
+				<img class="img-fluid" src="{{ site.baseurl }}{{ project.front }}" alt="{{ project.title }}" />
+			</div>
+		</div>
+		{%- if loopindex < loop_size -%}
+		<hr>
+		{%- endif -%}
+		{%- endfor -%}
+		
+	</div><!-- /container -->

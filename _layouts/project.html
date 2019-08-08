@@ -1,0 +1,117 @@
+---
+layout: default
+---
+	<!-- +++++ Projects Section +++++ -->
+	<div class="container mt-10">
+		<div class="row">
+			<div class="col-lg-6">
+				<h3>{{ page.title }}</h3>
+				<hr>
+				<div class="row mb-4">
+					<div class="col-4"><i class="fas fa-building"></i> {{ page.client }}</div>
+					<div class="col-4 text-center"><i class="fas fa-desktop"></i> {{ page.type }}</div>
+					<div class="col-4 text-right"><i class="fas fa-calendar-check"></i> {{ page.completion | date: "%B %Y" }}</div>
+				</div>
+				<p>{{ page.content | strip_html | split:"Project Objectives" | first }}</p>
+				{%- assign techs = page.technology | split:',' -%}
+				{%- if techs.size > 0 -%}
+				<div class="tags">
+					<ul>
+						{%- for tech in techs -%}
+						<li><a href="#!"><i class="fas fa-stream mr-2"></i>{{ tech }}</a></li>
+						{%- endfor -%}
+					</ul>
+				</div>
+				{%- endif -%}
+			</div>
+			<div class="col-lg-6">
+					<img class="img-fluid" src="{{ site.baseurl }}{{ page.main }}" alt="{{ page.title }}" />
+			</div>
+		</div>
+	</div>
+	
+	{{ content }}
+	
+	<div class="tbg-gray py-1">
+	<div class="container my">
+		<div class="row text-center">	
+			<div class="col-lg-8 offset-lg-2">
+				<h5>More Projects</h5>
+				<hr class="mb-4">
+			</div>
+		</div><!-- /row -->
+		{%- assign loopindex = 0 -%}
+		{%- assign projects = site.projects | sort: 'completion' -%}
+		{%- assign projects_size = site.projects | size | minus:1 -%}
+		
+		{%- for project in projects -%}
+			{%- if project.title == page.title -%}
+				{% break %}
+			{%- endif -%}
+			{%- assign loopindex = loopindex | plus: 1 -%}
+		{%- endfor -%}
+		
+		{%- assign prev_chk = loopindex | minus:1 -%}
+		{%- assign next_chk = loopindex | plus:1 -%}
+		{%- assign next2_chk = loopindex | plus:2 -%}
+		
+		{%- if prev_chk >= 0 -%}
+			{%- assign prev_idx = prev_chk -%}
+		{%- else -%}
+			{%- assign prev_idx = projects_size -%}
+		{%- endif -%}
+		
+		{%- if next_chk > projects_size -%}
+			{%- assign next_idx = 0 -%}
+		{%- else -%}
+			{%- assign next_idx = next_chk -%}
+		{%- endif -%}
+		
+		{%- if next2_chk >= projects_size -%}
+			{%- assign next2_idx = next2_chk | minus:projects_size | minus:1 -%}
+		{%- else -%}
+			{%- assign next2_idx = next2_chk -%}
+		{%- endif -%}
+		
+		{%- assign projectprev = projects[prev_idx] -%} 
+		{%- assign projectnext = projects[next_idx] -%}
+		{%- assign projectnext2 = projects[next2_idx] -%}
+		
+		<div class="row">
+			<div class="project-deck">
+				<div class="col-sm-6 col-md-4">
+					<div class="project-card">
+						<img src="{{ site.baseurl }}{{ projectprev.thumb }}" alt="{{ projectprev.title }}">
+						<div class="caption">
+							<h5>{{ projectprev.title }}</h5>
+							<p>{{ projectprev.type }}</p>
+							<p><a href="{{ projectprev.url }}" class="btn btn-secondary btn-sm bg-theme" role="button"></i> View Project</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="project-card">
+						<img src="{{ site.baseurl }}{{ projectnext.thumb }}" alt="{{ projectnext.title }}">
+						<div class="caption">
+							<h5>{{ projectnext.title }}</h5>
+							<p>{{ projectnext.type }}</p>
+							<p><a href="{{ projectnext.url }}" class="btn btn-secondary btn-sm bg-theme" role="button"></i> View Project</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 d-none d-md-block">
+					<div class="project-card">
+						<img src="{{ site.baseurl }}{{ projectnext2.thumb }}" alt="{{ projectnext2.title }}">
+						<div class="caption">
+							<h5>{{ projectnext2.title }}</h5>
+							<p>{{ projectnext2.type }}</p>
+							<p><a href="{{ projectnext2.url }}" class="btn btn-secondary btn-sm bg-theme" role="button"></i> View Project</a></p>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	</div>

@@ -1,21 +1,26 @@
 <!-- Static navbar -->
-    <div class="navbar navbar-inverse navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{{ site.url }}">{{ site.author.first_name }}<span class="brand-normal">.{{ site.author.last_name }}</span></a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/pages/works/">Work</a></li>
-            <li><a href="/pages/about/">About</a></li>
-            <li><a href="/pages/posts/">Blog</a></li>
-            <li><a href="/pages/contact/">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
+<div class="navbar navbar-inverse navbar-dark navbar-expand-lg fixed-top">
+	<div class="container">
+		<a class="navbar-brand" href="{{ site.url }}">{{ site.author.first_name }}<span class="brand-normal">.{{ site.author.last_name }}</span></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarfull" aria-controls="navbarfull" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="navbar-collapse collapse" id="navbarfull">
+			<div class="navbar-nav ml-auto">
+				<ul class="nav navbar-nav nav-justified">
+				{% if page.url == '/' %}
+					<li class="nav-item"><a class="nav-link" href="#project">Project</a></li>
+					<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+					<li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+					<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+				{%- else -%}
+					<li class="nav-item"><a class="nav-link" href="{{ site.url }}#project">Project</a></li>
+					<li class="nav-item"><a class="nav-link" href="{{ site.url }}#about">About</a></li>
+					<li class="nav-item"><a class="nav-link" href="{{ site.url }}/blog/">Blog</a></li>
+					<li class="nav-item"><a class="nav-link" href="{{ site.url }}#contact">Contact</a></li>
+				{%- endif -%}
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div>
+</div>

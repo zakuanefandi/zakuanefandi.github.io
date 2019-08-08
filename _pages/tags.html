@@ -16,22 +16,22 @@ layout: default
 	<!-- `tag_words` is a sorted array of the tag names. -->
 	{%- assign tag_words = site_tags | split:',' | sort -%}
 	
-	<div class="container pt">
-		<div class="row mt">
-			<div class="col-lg-6 col-lg-offset-3 centered">
+	<div class="container mt-10">
+		<div class="row">
+			<div class="col-lg-6 offset-lg-3 centered">
 				<h3>TAGS</h3>
 				<hr>
 			</div>
 		</div>
-		<div class="row mt">	
-			<div class="col-lg-8 col-lg-offset-2">
+		<div class="row">	
+			<div class="col-lg-8 offset-lg-2">
 				<!-- List of all tags -->
-				<div class="tags"><bt>All Tags:</bt>
+				<div class="tags">
 					<ul>
 					  {%- for item in (0..site.tags.size) -%}{%- unless forloop.last -%}
 						{%- capture this_word -%}{{ tag_words[item] | strip }}{%- endcapture -%}
 						<li>
-						  <a href="#{{ this_word | cgi_escape }}">{{ this_word }}
+						  <a href="#{{ this_word | cgi_escape }}"><i class="fas fa-tags mr-2"></i>{{ this_word }}
 							<span>({{ site.tags[this_word].size }})</span>
 						  </a>
 						</li>

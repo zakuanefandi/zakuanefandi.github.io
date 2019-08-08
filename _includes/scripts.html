@@ -2,3 +2,23 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="{{ site.baseurl }}/assets/js/bootstrap.min.js"></script>
+	
+	<script>
+	$(function() {
+		$('a[href*=\\#]:not([href=\\#])').on('click', function() {
+			var _opened = $(".navbar-collapse").hasClass("show");
+			if (_opened === true){
+				$(".navbar-toggler").click();
+			}
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.substr(1) +']');
+			if (target.length) {
+				$('html,body').animate({
+				  scrollTop: (target.offset().top - 50)
+				}, 1000);
+				return false;
+			}
+		});
+	});
+	
+	</script>
