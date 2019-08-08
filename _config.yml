@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Zakuan Efandi's Personal Weblog
+title: Zakuan Efandi
 description: Personal Weblog
 baseurl: ""
 url: "https://zakuanefandi.github.io/"
@@ -26,10 +26,13 @@ author:
   first_name: Zakuan
   last_name: Efandi
 
+paginate: 3
+paginate_path: /blog/:num/
+
 collections:
-  works:
+  projects:
     output: true
-    permalink: /works/:title/
+    permalink: /projects/:title/
   posts:
     output: true
     permalink: /posts/:year/:month/:title/
@@ -39,13 +42,16 @@ collections:
 
 defaults:
   - scope:
-      type: works
+      type: projects
     values:
-      layout: work
+      layout: project
   - scope:
       type: posts
     values:
       layout: post
+
+plugins:
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

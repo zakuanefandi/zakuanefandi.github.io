@@ -1,0 +1,42 @@
+	<!-- +++++ Contact Section +++++ -->
+	<div id="contact" class="tbg-gray con-b">
+		<div class="container py">
+			<div class="row">
+				<div class="col-lg-6 offset-lg-3 centered">
+					<h3>CONTACT ME</h3>
+					<hr>
+					<p>Let's do something amazing!</br>
+					Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+					<form role="form" id="frm_contact">
+					  <p><button type="submit" class="btn btn-success btn-large"><i class="fas fa-envelope fa-lg"></i> GET IN TOUCH</button></p>
+					</form>
+					<p>Don't have email client?</br> Copy my <a href="#contact" id="lnk_email" style="cursor: pointer;">E-mail address</a> to your clipboard.</p>
+				</div>
+			</div>
+		</div>
+	</div><!-- /container -->
+	
+	<script language="JavaScript">
+    var username = "m.zakuan.efandi";
+    var hostname = "gmail";
+    var linktext = username + "@" + hostname + ".com" ;
+	document.getElementById('frm_contact').action = "mail" + "to:" + linktext;
+	document.getElementById('frm_contact').title = linktext;
+	document.getElementById('frm_contact').alt = linktext;
+	document.getElementById('lnk_email').onclick = function copyToClipboard(){
+		// Create an auxiliary hidden input
+		var aux = document.createElement("input");
+		// Get the text from the element passed into the input
+		aux.setAttribute("value", linktext);
+		// Append the aux input to the body
+		document.body.appendChild(aux);
+		// Highlight the content
+		aux.select();
+		// Execute the copy command
+		document.execCommand("copy");
+		// Remove the input from the body
+		document.body.removeChild(aux);
+		// Alert action
+		alert("'" + linktext + "' copied to clipboard.");
+		}
+	</script>

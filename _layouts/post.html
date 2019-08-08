@@ -1,36 +1,78 @@
 ---
 layout: default
 ---
+
 {%- assign author = site.data.authors[page.author] -%}
 	<!-- +++++ Post +++++ -->
-	<div class="container pt">
-		<div id="white">
-			<div class="container">
+	<div class="container py">
+		<div class="row con-p">
+			<div class="col-lg-10 offset-lg-1">
+				<p>
+					<img src="{{ site.baseurl }}{{ author.avatar | default: site.data.authors.admin.avatar }}" width="50px" height="50px">
+					<ba>{{ author.name | default: site.data.authors.admin.name }}</ba>
+				</p>
+				<h4>{{ page.title }}</h4>
+				<p>
+					<bd>
+						<i class="fas fa-calendar-alt fa-lg"></i>
+						{{ page.date | date_to_string }}
+					</bd>
+				</p>
+				{{ content }}
+				{%- if page.tags.size > 0 -%}
+				<div class="tags">
+					<ul>
+						{%- for tag in page.tags -%}
+						<li><a href="/pages/tags/#{{ tag }}"><i class="fas fa-tag mr-2"></i>{{ tag }}</a></li>
+						{%- endfor -%}
+					</ul>
+				</div>
+				{%- endif -%}
+			</div>
+		</div><!-- /row content -->
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
 				<div class="row">
-					<div class="col-lg-8 col-lg-offset-2">
-						<p>
-							<img src="{{ site.baseurl }}{{ author.avatar | default: site.data.authors.admin.avatar }}" width="50px" height="50px">
-							<ba>{{ author.name | default: site.data.authors.admin.name }}</ba>
-						</p>
-						<p><bd>{{ page.date | date_to_string }}</bd></p>
-						<h4>{{ page.title }}</h4>
-						{{ content }}
-						<br>
-						{%- if page.tags.size > 0 -%}
-						<div class="tags">
-						<bt><span class="glyphicon glyphicon-tags"></span> Tags:</bt>
-							<ul>
-								{%- for tag in page.tags -%}
-								<li><a href="/pages/tags/#{{ tag }}">{{ tag }}</a></li>
-								{%- endfor -%}
-							</ul>
-						</div>
+					<div class="col-6 text-left">
+						{%- if page.previous.url -%}
+						<a href="{{ page.previous.url }}">
+							<b><span class="fas fa-chevron-circle-left"></span> Previous</b>
+							<span>{{ page.previous.title }}</span>
+						</a>
 						{%- endif -%}
-						<hr>
-						<p><a href="/pages/posts/">Back</a></p>
 					</div>
-
-				</div><!-- /row -->
-			</div> <!-- /container -->
-		</div><!-- /white -->
+					<div class="col-6 text-right">
+						{%- if page.next.url -%}
+						<a href="{{ page.next.url }}">
+							<span>{{ page.next.title }}</span>
+							<b><span class="fas fa-chevron-circle-right"></span> Next</b>
+						</a>
+						{%- endif -%}
+					</div>
+				</div>
+			</div>
+		</div><!-- /row pager -->
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<hr>
+				<div id="disqus_thread"></div>
+				{%- assign disqus_id = page.disqus_id -%}
+				{%- if disqus_id == "" or disqus_id == nil or disqus_id == blank -%}
+				{%- assign disqus_id = page.title | slugify -%}
+				{%- endif -%}
+				<script type="text/javascript">
+					var disqus_shortname = 'zakuanefandiweblog';
+					var disqus_identifier = '{{ disqus_id }}';
+					// var disqus_url = 'http://example.com/permalink-to-page.html';
+				
+					/* * * DON'T EDIT BELOW THIS LINE * * */
+					(function() {
+						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					})();
+				</script>
+				<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			</div>
+		</div><!-- /row comment -->
 	</div>
