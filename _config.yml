@@ -22,6 +22,9 @@ encoding: UTF-8
 excerpt_separator: <!--more-->
 timezone: Asia/Kuala_Lumpur
 
+google_analytics: UA-145383322-1
+disqus_shortname: zakuanefandiweblog
+
 author:
   first_name: Zakuan
   last_name: Efandi
@@ -52,6 +55,7 @@ defaults:
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-admin
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
